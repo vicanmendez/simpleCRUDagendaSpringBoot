@@ -35,8 +35,8 @@ public class TareaController {
 	
 	
 	
-	@GetMapping
-	public List<Tarea> getStudents() {
+	@GetMapping(value = "/lista")
+	public List<Tarea> getTareas() {
 		return tareaService.getTareas();
 	}
 	

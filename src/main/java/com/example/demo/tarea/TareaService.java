@@ -46,11 +46,12 @@ private  final TareaRepository tareaRepository;
 		}
 	}
 
+	//QUEDA PENDIENTE ACTUALIZAR ESTE MÉTODO PARA QUE MODIFIQUE TODOS LOS CAMPOS
 	//The annotation Transactional means that we have not to implement any JPQL query, we will use the setters of our Entity class
 	@Transactional
 	public void updateTarea(Long tareaId, String titulo, String descripcion, LocalDate momento, boolean completada) throws Throwable {
 		//Check if exists
-	     Tarea tarea = (Tarea) tareaRepository.findById(tareaId).orElseThrow(() -> new IllegalStateException("Student with id " +tareaId+" does not exist"));
+	     Tarea tarea = (Tarea) tareaRepository.findById(tareaId).orElseThrow(() -> new IllegalStateException("Tarea con la ID " +tareaId+" no existe"));
 		
 		if(titulo != null && titulo.length() > 0 && !Objects.equals(tarea.getTitulo(), titulo)) {
 			tarea.setTitulo(titulo);
